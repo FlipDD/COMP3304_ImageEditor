@@ -89,6 +89,7 @@ namespace COMP3304Application
                 fileDialog.Multiselect = true;
 
                 DialogResult result = fileDialog.ShowDialog();
+                // try catch vs. if (result == DialogResult.OK)
                 try {
                     // Iterates through all selected files adding them to dictionary
                     foreach (string newFile in fileDialog.FileNames) {
@@ -122,6 +123,11 @@ namespace COMP3304Application
         }    
 
         private void pbImage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
