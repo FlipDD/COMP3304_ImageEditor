@@ -16,13 +16,19 @@ namespace COMP3304Application
     {
         private Next _next;
         private Dictionary<int, Image> _imageFiles;
-        private List<string> _filePaths;
+        private ImageProcess imageProcess;
 
         public Form1()
         {
             InitializeComponent();
+            // INITIALIZE the Dictionary that will 
+            // hold the original Images in memory.
             _imageFiles = new Dictionary<int, Image>();
             _next = NextPreviousImage;
+
+            // GET the path to all Images in a directory
+            // and assign them to the _filePaths List
+            List<string> _filePaths = new List<string>();
             try {
                 _filePaths = Directory.GetFiles("../../FishAssets", "*.*", SearchOption.AllDirectories).ToList();
             }
@@ -30,19 +36,24 @@ namespace COMP3304Application
                 Console.WriteLine("Error: {0}", e.ToString());
             }
 
-            ImageResizer imageResizer = new ImageResizer();
-            for (int i = 0; i < _filePaths.Count; i++)
-            {
-                _imageFiles.Add(i, imageResizer.ConvertToImage(_filePaths[i]));
+            // INSTANTIATE the image process class --
+            // Used to convert paths into images
+            // and format them, i.e. scale, rotate.
+            imageProcess = new ImageProcess();
+
+            // CONVERT all Image paths (string) to Images
+            // and ADD them to the _imageFiles Dictionary.
+            for (int i = 0; i < _filePaths.Count; i++) {
+                _imageFiles.Add(i, imageProcess.ConvertToImage(_filePaths[i]));
             }
 
-            pbImage.Image = imageResizer.ResizeImage(_imageFiles[2], 50, 50);
-
+            // ASSIGN a RESIZED image to the picture box.
+            pbImage.Image = imageProcess.ResizeImage(_imageFiles[0], 200, 200);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -55,9 +66,24 @@ namespace COMP3304Application
             _next(-1);
         }
 
+        // By Filipe Ribeiro
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            // Display a dialog box to prompt the user to select a file
+            OpenFileDialog dialogBox = new OpenFileDialog();
+            // Filter the results to only allow specific file types
+            dialogBox.Filter = "Image Files(*.BMP; *.JPG; *.GIF; *.PNG;)| *.BMP; *.JPG; *.GIF *.PNG | All files(*.*) | *.*";
+            dialogBox.FilterIndex = 1;
+            // TODO Maybe add this later? - Select multiple images
+            // dialogBox.Multiselect = true;
 
+            if (dialogBox.ShowDialog() == DialogResult.OK)
+            {
+                int index = _imageFiles.Count;
+                Image newImage = imageProcess.ConvertToImage(dialogBox.FileName);
+                _imageFiles.Add(index, newImage);
+                //string[] allImages = dialogBox.FileNames; // if Multiselect = true           
+            }
         }
 
         public void NextPreviousImage(int increment) {
