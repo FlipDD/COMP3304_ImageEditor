@@ -14,7 +14,6 @@ namespace COMP3304Application
 {
     public partial class Form1 : Form
     {
-        private OpenFileDialog fileDialog;
         private int _currentIndex;
         private CurrentImage _currentImage;
         private Load _load;
@@ -26,18 +25,22 @@ namespace COMP3304Application
         {
             InitializeComponent();
             imageProcess = new ImageProcess();
+            //Dictionary and list for image file data
             _imageFiles = new Dictionary<int, Image>();
+            List<string> _filePaths = new List<string>();            
+            // delegate assignment
             _currentImage = CurrentImage;
-            _load = LoadNewImage;
-            List<string> _filePaths = new List<string>();
+            _load = LoadNewImage;            
 
+            // Search and add all image filenames to  list
             try {
                 _filePaths = Directory.GetFiles("../../FishAssets", "*.*", SearchOption.AllDirectories).ToList();
             }
             catch (Exception e) {
                 Console.WriteLine("Error: {0}", e.ToString());
             }
-                        
+
+            // Populate Dictionary with converted images from List            
             for (int i = 0; i < _filePaths.Count; i++)
             {
                 _imageFiles.Add(i, imageProcess.ConvertToImage(_filePaths[i]));
@@ -55,20 +58,27 @@ namespace COMP3304Application
         }
 
         public void LoadNewImage() {
-            fileDialog = new OpenFileDialog();
-            DialogResult result = fileDialog.ShowDialog();
+            // creates new dialog box 
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Title = "Select Images";
+            // Filters image extensions only
+            fileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            // ensures multiselect is enabled
+            fileDialog.Multiselect = true;
+            DialogResult result = fileDialog.ShowDialog(); 
             try
             {
-                string newfile = fileDialog.FileName;
-                _imageFiles.Add(_imageFiles.Count, imageProcess.ConvertToImage(newfile));
+                // Iterates through all selected files adding them to dictionary
+                foreach (string newFile in fileDialog.FileNames)
+                {
+                    _imageFiles.Add(_imageFiles.Count, imageProcess.ConvertToImage(newFile));
+                }                
+               
             }
             catch (Exception a)
             {
                 Console.WriteLine("Error with importing image: {0}", a);
             }
-
-            // ASSIGN a RESIZED image to the picture box.
-            pbImage.Image = imageProcess.ResizeImage(_imageFiles[0], 200, 200);
         }
 
         private void Form1_Load(object sender, EventArgs e)
