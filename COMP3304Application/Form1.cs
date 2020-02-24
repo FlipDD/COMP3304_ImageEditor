@@ -69,24 +69,39 @@ namespace COMP3304Application
         // By Filipe Ribeiro
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            // Display a dialog box to prompt the user to select a file
-            OpenFileDialog dialogBox = new OpenFileDialog();
-            // Filter the results to only allow specific file types
-            dialogBox.Filter = "Image Files(*.BMP; *.JPG; *.GIF; *.PNG;)| *.BMP; *.JPG; *.GIF *.PNG | All files(*.*) | *.*";
-            dialogBox.FilterIndex = 1;
-            // TODO Maybe add this later? - Select multiple images
-            // dialogBox.Multiselect = true;
-
-            if (dialogBox.ShowDialog() == DialogResult.OK)
+            // Display a dialog box to prompt the user to select a file.
+            // Create an instance with a using statement so it automatically
+            // closes the stream and calls .Dispose(), which calls .Close().
+            using (OpenFileDialog dialogBox = new OpenFileDialog())
             {
-                int index = _imageFiles.Count;
-                Image newImage = imageProcess.ConvertToImage(dialogBox.FileName);
-                _imageFiles.Add(index, newImage);
-                //string[] allImages = dialogBox.FileNames; // if Multiselect = true           
+                // Set the initial directory to look into.
+                // Make it the one where the FishAssets are located.
+                string currentPath = Directory.GetCurrentDirectory();
+                string newPath = Path.GetFullPath(Path.Combine(currentPath, @"..\..\FishAssets"));
+                dialogBox.InitialDirectory = newPath;
+                // Filter the results to only allow specific file types.
+                dialogBox.Filter = "Image Files (*.BMP; *.JPG; *.GIF; *.PNG)|*.BMP; *.JPG; *.GIF; *.PNG| All files (*.*)|*.*";
+                dialogBox.FilterIndex = 1;
+                // TODO Maybe add this later? - Select multiple images.
+                // dialogBox.Multiselect = true;
+
+                // If the DialogResult is OK
+                // Convert the path of the Image to an Image
+                // and Add it to the _imageFiles dictionary
+                if (dialogBox.ShowDialog() == DialogResult.OK)
+                {
+                    int index = _imageFiles.Count;
+                    Image newImage = imageProcess.ConvertToImage(dialogBox.FileName);
+                    _imageFiles.Add(index, newImage);
+
+                    // if Multiselect = true      
+                    //string[] allImages = dialogBox.FileNames;      
+                }
             }
         }
 
-        public void NextPreviousImage(int increment) {
+        public void NextPreviousImage(int increment)
+        {
             if (increment == 1) {
 
             }
