@@ -12,7 +12,7 @@ namespace ImageResizerLibrary
 {
     public class ImageResizer
     {
-        public ImageFactory imageFactory;
+        private ImageFactory imageFactory;
 
         public Image ConvertToImage(string path)
         {
@@ -31,13 +31,22 @@ namespace ImageResizerLibrary
                                 .Save(outStream);
                 }
             }
+
             return imageFactory.Image;
         }
 
-        public Image ResizeImage(int width, int height)
+        public Image ResizeImage(Image image, int width, int height)
         {
             Size size = new Size(width, height);
-            imageFactory.Resize(size);
+            using (MemoryStream outStream = new MemoryStream())
+            {
+                imageFactory = new ImageFactory(preserveExifData: true);
+                // Load, format and save an image.
+                imageFactory.Load(image)
+                            .Resize(size)
+                            .Save(outStream);
+            }
+
             return imageFactory.Image;
         }
     }

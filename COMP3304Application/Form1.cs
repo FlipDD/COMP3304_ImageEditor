@@ -31,12 +31,12 @@ namespace COMP3304Application
             }
 
             ImageResizer imageResizer = new ImageResizer();
-            for (int i =0; i<_filePaths.Count; i++)
+            for (int i = 0; i < _filePaths.Count; i++)
             {
                 _imageFiles.Add(i, imageResizer.ConvertToImage(_filePaths[i]));
             }
-            pbImage.Image = imageResizer.ResizeImage( 100, 100);
-            pbImage.Image = _imageFiles[0];
+
+            pbImage.Image = imageResizer.ResizeImage(_imageFiles[2], 50, 50);
 
         }
 
