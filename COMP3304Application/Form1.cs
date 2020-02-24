@@ -53,7 +53,7 @@ namespace COMP3304Application
 
         public void NextPreviousImage(int increment) {
             if (increment == 1) {
-                
+
             }
             else if (increment == -1) {
 
