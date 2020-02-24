@@ -8,26 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using ImageResizerLibrary;
 
 namespace COMP3304Application
 {
     public partial class Form1 : Form
     {
         private Next _next;
-        private Dictionary<int, Image> _ImageFiles;
-        private List<string> _FilePaths;
+        private Dictionary<int, Image> _imageFiles;
+        private List<string> _filePaths;
 
         public Form1()
         {
             InitializeComponent();
             _next = NextPreviousImage;
-            _FilePaths = Directory.GetFiles("../../FishAssets","*.*",SearchOption.AllDirectories).ToList();
-            _ImageFiles = new Dictionary<int, Image>();
+            try {
+                _filePaths = Directory.GetFiles("../../FishAssets", "*.*", SearchOption.AllDirectories).ToList();
+            }
+            catch (Exception e) {
+                Console.WriteLine("Error: {0}", e.ToString());
+            }
+            foreach () {
+            }
 
-            //TODO - Implement -- Decide to use either image path (string) or image in memory (Image)
-            //ImageResizer _imageResizer = new ImageResizer(_imageData._imageDictionary[randomInt], 150, 100);
-            //pbImage.Image = _imageResizer.GetResizedImage();
-
+            _imageFiles = new Dictionary<int, Image>();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -66,6 +70,11 @@ namespace COMP3304Application
         private void pbImage_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void ConvertToImage() {
+            ImageResizer _imageResizer = new ImageResizer(_filePaths[1], 150, 100);
+            pbImage.Image = _imageResizer.GetResizedImage();
         }
     }
 }
