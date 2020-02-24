@@ -52,7 +52,7 @@ namespace COMP3304Application
 
         public void NextPreviousImage(int increment) {
             if (increment == 1) {
-                _ImageFiles
+                //_ImageFiles
             }
             else if (increment == -1) {
 
