@@ -22,6 +22,12 @@ namespace COMP3304Application
             _ImageFiles = new Dictionary<int, string>();
             _ImageFiles.Add(1, "image1.png");
             _ImageFiles.Add(2, "image2.png");
+
+
+            //TODO - Implement -- Decide to use either image path (string) or image in memory (Image)
+            //ImageResizer _imageResizer = new ImageResizer(_imageData._imageDictionary[randomInt], 150, 100);
+            //pbImage.Image = _imageResizer.GetResizedImage();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

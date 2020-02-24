@@ -80,5 +80,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImageProcessorLibrary\ImageProcessorLibrary.csproj">
+      <Project>{1b37d92d-e5ff-437d-8902-d0aeb535443a}</Project>
+      <Name>ImageProcessorLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
