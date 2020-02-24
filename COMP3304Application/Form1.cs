@@ -7,21 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace COMP3304Application
 {
     public partial class Form1 : Form
     {
         private Next _next;
-        private Dictionary<int, string> _ImageFiles;
+        private Dictionary<int, Image> _ImageFiles;
+        private List<string> _FilePaths;
 
         public Form1()
         {
             InitializeComponent();
             _next = NextPreviousImage;
-            _ImageFiles = new Dictionary<int, string>();
-            _ImageFiles.Add(1, "image1.png");
-            _ImageFiles.Add(2, "image2.png");
+            _FilePaths = Directory.GetFiles("../../FishAssets","*.*",SearchOption.AllDirectories).ToList();
+            _ImageFiles = new Dictionary<int, Image>();
 
 
             //TODO - Implement -- Decide to use either image path (string) or image in memory (Image)
@@ -52,11 +53,16 @@ namespace COMP3304Application
 
         public void NextPreviousImage(int increment) {
             if (increment == 1) {
-                _ImageFiles
+                
             }
             else if (increment == -1) {
 
             }
+        }
+
+        private void pbImage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
