@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ImageResizerLibrary;
 
 namespace COMP3304Application
 {
@@ -22,7 +23,6 @@ namespace COMP3304Application
             _ImageFiles = new Dictionary<int, string>();
             _ImageFiles.Add(1, "image1.png");
             _ImageFiles.Add(2, "image2.png");
-
 
             //TODO - Implement -- Decide to use either image path (string) or image in memory (Image)
             //ImageResizer _imageResizer = new ImageResizer(_imageData._imageDictionary[randomInt], 150, 100);
@@ -52,7 +52,7 @@ namespace COMP3304Application
 
         public void NextPreviousImage(int increment) {
             if (increment == 1) {
-                //_ImageFiles
+                //x_ImageFiles
             }
             else if (increment == -1) {
 
