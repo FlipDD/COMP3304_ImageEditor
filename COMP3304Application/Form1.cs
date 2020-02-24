@@ -21,6 +21,7 @@ namespace COMP3304Application
         public Form1()
         {
             InitializeComponent();
+            _imageFiles = new Dictionary<int, Image>();
             _next = NextPreviousImage;
             try {
                 _filePaths = Directory.GetFiles("../../FishAssets", "*.*", SearchOption.AllDirectories).ToList();
@@ -28,10 +29,15 @@ namespace COMP3304Application
             catch (Exception e) {
                 Console.WriteLine("Error: {0}", e.ToString());
             }
-            foreach () {
-            }
 
-            _imageFiles = new Dictionary<int, Image>();
+            ImageResizer imageResizer = new ImageResizer();
+            for (int i =0; i<_filePaths.Count; i++)
+            {
+                _imageFiles.Add(i, imageResizer.ConvertToImage(_filePaths[i]));
+            }
+            pbImage.Image = imageResizer.ResizeImage( 100, 100);
+            pbImage.Image = _imageFiles[0];
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -56,11 +62,7 @@ namespace COMP3304Application
 
         public void NextPreviousImage(int increment) {
             if (increment == 1) {
-<<<<<<< HEAD
-                //x_ImageFiles
-=======
 
->>>>>>> 9ac7c6adcafed9fa7126af3dc16245b576e46c1c
             }
             else if (increment == -1) {
 
@@ -70,11 +72,6 @@ namespace COMP3304Application
         private void pbImage_Click(object sender, EventArgs e)
         {
 
-        }
-
-        public void ConvertToImage() {
-            ImageResizer _imageResizer = new ImageResizer(_filePaths[1], 150, 100);
-            pbImage.Image = _imageResizer.GetResizedImage();
         }
     }
 }

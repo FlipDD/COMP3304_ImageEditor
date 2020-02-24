@@ -12,7 +12,7 @@ namespace ImageResizerLibrary
 {
     public class ImageResizer
     {
-        private ImageFactory imageFactory;
+        public ImageFactory imageFactory;
 
         public Image ConvertToImage(string path)
         {
