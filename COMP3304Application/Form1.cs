@@ -29,9 +29,8 @@ namespace COMP3304Application
             _imageFiles = new Dictionary<int, Image>();
             _currentImage = CurrentImage;
             _load = LoadNewImage;
-            _imageFiles = new Dictionary<int, Image>();
-
             List<string> _filePaths = new List<string>();
+
             try {
                 _filePaths = Directory.GetFiles("../../FishAssets", "*.*", SearchOption.AllDirectories).ToList();
             }
