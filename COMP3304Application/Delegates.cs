@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace COMP3304Application
 {
-    public delegate void Previous();
     public delegate void Load();
-    public delegate void Next(int increment);
+    public delegate void CurrentImage(int increment);
     class Delegates
     {
     }
