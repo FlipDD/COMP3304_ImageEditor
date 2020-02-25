@@ -102,34 +102,36 @@ namespace COMP3304Application
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
+        // Events for when buttons are click
+        // NEXT image button click
         private void btnNext_Click(object sender, EventArgs e)
         {
             _currentImage(1);
         }
 
+        // PREVIOUS image button click
         private void btnPrevious_Click(object sender, EventArgs e)
         {
             _currentImage(-1);
         }
         
+        // LOAD new image button click
         private void btnLoad_Click(object sender, EventArgs e)
         {
             _load();
-        }    
-
-        private void pbImage_Click(object sender, EventArgs e)
-        {
-
         }
 
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        private void pbImage_Resize(object sender, EventArgs e)
         {
+            // Works the first time?
+            //pbImage.Image = imageProcess
+            //                .ResizeImage(_imageFiles[_currentIndex],
+            //                             pbImage.Width,
+            //                             pbImage.Height);
 
+            // Sort of works but lags?
+            //pbImage.Width = tableLayoutPanel1.Width;
+            //pbImage.Height = tableLayoutPanel1.Height;
         }
     }
 }

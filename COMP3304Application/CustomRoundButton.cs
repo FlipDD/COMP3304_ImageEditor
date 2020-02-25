@@ -9,6 +9,10 @@ using System.Windows.Forms;
 
 namespace COMP3304Application
 {
+    /// <summary>
+    /// Class to create a custom round button
+    /// Taken from https://csharpui.com/c-custom-round-button/
+    /// </summary>
     public class CustomRoundButton : Button
     {
         private Color _borderColor = Color.Silver;
@@ -21,7 +25,6 @@ namespace COMP3304Application
         private bool _isHovering;
         private int _borderThickness = 6;
         private int _borderThicknessByTwo = 3;
-
 
         public CustomRoundButton()
         {
@@ -37,7 +40,6 @@ namespace COMP3304Application
                 Invalidate();
             };
         }
-
 
         protected override void OnPaint(PaintEventArgs e)
         {
