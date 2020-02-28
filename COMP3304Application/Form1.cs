@@ -53,16 +53,19 @@ namespace COMP3304Application
                 _imageFiles.Add(i, imageProcess.ConvertToImage(_filePaths[i]));
             }
 
-            // Decide with image to show
+            // Show first image in collection
             CurrentImage(0);
         }
 
 
         public void CurrentImage(int increment)
         {
+            // increment current index by passed value
             _currentIndex += increment;
+            // reset current index if boundaries are reached 
             if (_currentIndex > _imageFiles.Count - 1) { _currentIndex = 0; }
             else if (_currentIndex < 0) { _currentIndex = _imageFiles.Count - 1; }
+            // get scaled image     
             pbImage.Image = imageProcess.ResizeImage(_imageFiles[_currentIndex], 150, 150);
         }
 

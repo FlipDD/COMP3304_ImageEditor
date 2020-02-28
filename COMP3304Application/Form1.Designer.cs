@@ -173,8 +173,9 @@
             this.ClientSize = new System.Drawing.Size(538, 459);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(550, 400);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Image Editor";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
