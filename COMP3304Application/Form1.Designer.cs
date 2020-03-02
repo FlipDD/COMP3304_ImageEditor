@@ -28,37 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutpicturePanel = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.picturePanel = new System.Windows.Forms.Panel();
             this.loadButton = new COMP3304Application.CustomRoundButton();
             this.previousButton = new COMP3304Application.CustomRoundButton();
             this.nextButton = new COMP3304Application.CustomRoundButton();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.pbImage = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutpicturePanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableLayoutpicturePanel
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tableLayoutpicturePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.loadButton, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.previousButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.nextButton, 2, 0);
-            this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 333);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(508, 99);
-            this.tableLayoutPanel1.TabIndex = 4;
+            this.tableLayoutpicturePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutpicturePanel.ColumnCount = 3;
+            this.tableLayoutpicturePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutpicturePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutpicturePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutpicturePanel.Controls.Add(this.loadButton, 1, 0);
+            this.tableLayoutpicturePanel.Controls.Add(this.previousButton, 0, 0);
+            this.tableLayoutpicturePanel.Controls.Add(this.nextButton, 2, 0);
+            this.tableLayoutpicturePanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tableLayoutpicturePanel.Location = new System.Drawing.Point(3, 320);
+            this.tableLayoutpicturePanel.Name = "tableLayoutpicturePanel";
+            this.tableLayoutpicturePanel.RowCount = 1;
+            this.tableLayoutpicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutpicturePanel.Size = new System.Drawing.Size(522, 95);
+            this.tableLayoutpicturePanel.TabIndex = 4;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutpicturePanel, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.picturePanel, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.02339F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.97661F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(528, 418);
+            this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // picturePanel
+            // 
+            this.picturePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picturePanel.AutoSize = true;
+            this.picturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picturePanel.Location = new System.Drawing.Point(3, 3);
+            this.picturePanel.Name = "picturePanel";
+            this.picturePanel.Size = new System.Drawing.Size(522, 311);
+            this.picturePanel.TabIndex = 5;
             // 
             // loadButton
             // 
@@ -72,12 +100,12 @@
             this.loadButton.FlatAppearance.BorderSize = 0;
             this.loadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loadButton.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.loadButton.Location = new System.Drawing.Point(104, 3);
+            this.loadButton.Location = new System.Drawing.Point(107, 3);
             this.loadButton.Name = "loadButton";
             this.loadButton.OnHoverBorderColor = System.Drawing.Color.DeepSkyBlue;
             this.loadButton.OnHoverButtonColor = System.Drawing.Color.White;
             this.loadButton.OnHoverTextColor = System.Drawing.Color.DeepSkyBlue;
-            this.loadButton.Size = new System.Drawing.Size(298, 93);
+            this.loadButton.Size = new System.Drawing.Size(307, 89);
             this.loadButton.TabIndex = 8;
             this.loadButton.Text = "Load";
             this.loadButton.TextColor = System.Drawing.Color.DeepSkyBlue;
@@ -101,7 +129,7 @@
             this.previousButton.OnHoverBorderColor = System.Drawing.Color.DeepSkyBlue;
             this.previousButton.OnHoverButtonColor = System.Drawing.Color.White;
             this.previousButton.OnHoverTextColor = System.Drawing.Color.DeepSkyBlue;
-            this.previousButton.Size = new System.Drawing.Size(95, 93);
+            this.previousButton.Size = new System.Drawing.Size(98, 89);
             this.previousButton.TabIndex = 7;
             this.previousButton.Text = "<";
             this.previousButton.TextColor = System.Drawing.Color.DeepSkyBlue;
@@ -120,76 +148,42 @@
             this.nextButton.FlatAppearance.BorderSize = 0;
             this.nextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nextButton.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.nextButton.Location = new System.Drawing.Point(408, 3);
+            this.nextButton.Location = new System.Drawing.Point(420, 3);
             this.nextButton.Name = "nextButton";
             this.nextButton.OnHoverBorderColor = System.Drawing.Color.DeepSkyBlue;
             this.nextButton.OnHoverButtonColor = System.Drawing.Color.White;
             this.nextButton.OnHoverTextColor = System.Drawing.Color.DeepSkyBlue;
-            this.nextButton.Size = new System.Drawing.Size(97, 93);
+            this.nextButton.Size = new System.Drawing.Size(99, 89);
             this.nextButton.TabIndex = 6;
             this.nextButton.Text = ">";
             this.nextButton.TextColor = System.Drawing.Color.DeepSkyBlue;
             this.nextButton.UseVisualStyleBackColor = false;
             this.nextButton.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.pbImage, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 12);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.02339F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.97661F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(514, 435);
-            this.tableLayoutPanel2.TabIndex = 5;
-            // 
-            // pbImage
-            // 
-            this.pbImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImage.Location = new System.Drawing.Point(2, 2);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(2);
-            this.pbImage.MinimumSize = new System.Drawing.Size(128, 128);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(510, 326);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbImage.TabIndex = 3;
-            this.pbImage.TabStop = false;
-            this.pbImage.Resize += new System.EventHandler(this.pbImage_Resize);
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(538, 459);
+            this.ClientSize = new System.Drawing.Size(552, 442);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(550, 400);
             this.Name = "Form1";
             this.Text = "Image Editor";
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutpicturePanel.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutpicturePanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private CustomRoundButton loadButton;
         private CustomRoundButton previousButton;
         private CustomRoundButton nextButton;
-        private System.Windows.Forms.PictureBox pbImage;
+        private System.Windows.Forms.Panel picturePanel;
     }
 }
 

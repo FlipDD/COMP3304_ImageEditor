@@ -15,6 +15,7 @@ namespace COMP3304Application
     public partial class Form1 : Form
     {
         private ImageProcess imageProcess;
+        private IList<ImageData> _imagesData;
         private IDictionary<int, Image> _imageFiles;
         private CurrentImage _currentImage;
         private Load _load;
@@ -27,7 +28,11 @@ namespace COMP3304Application
             // Used to convert paths into images
             // and format them, i.e. scale, rotate.
             imageProcess = new ImageProcess();
-            
+
+            // INITIALIZE the List that will
+            // store image data
+            _imagesData = new List<ImageData>();
+
             // INITIALIZE the Dictionary that will 
             // hold the original Images in memory
             _imageFiles = new Dictionary<int, Image>();
@@ -51,6 +56,7 @@ namespace COMP3304Application
             // and POPULATE the _imageFiles Dictionary.          
             for (int i = 0; i < _filePaths.Count; i++) {
                 _imageFiles.Add(i, imageProcess.ConvertToImage(_filePaths[i]));
+                _imagesData.Add(new ImageData());
             }
 
             // Show first image in collection
@@ -65,8 +71,22 @@ namespace COMP3304Application
             // reset current index if boundaries are reached 
             if (_currentIndex > _imageFiles.Count - 1) { _currentIndex = 0; }
             else if (_currentIndex < 0) { _currentIndex = _imageFiles.Count - 1; }
-            // get scaled image     
-            pbImage.Image = imageProcess.ResizeImage(_imageFiles[_currentIndex], 150, 150);
+            // TODO review this
+            // DELETED - get scaled image    
+            // to use ORIGINAL WIDHTH AND HEIGHT instead
+            // Pictures don't lose quality like this
+            // Might need to consider storing scaled width and height?
+            Image original = _imageFiles[_currentIndex];
+            picturePanel.BackgroundImage = imageProcess.ResizeImage(original, original.Width, original.Height);
+
+            // Save values of new width and height
+            //ImageData imageData = _imagesData[_currentIndex];
+            //imageData.ResizedWidth = 50;
+            //imageData.ResizedHeight = 50;
+            //_imagesData[_currentIndex] = imageData;
+
+            //picturePanel.BackgroundImage = imageProcess.ResizeImage(original, _imagesData[_currentIndex].ResizedWidth, _imagesData[_currentIndex].ResizedWidth);
+            //pbImage.Image = imageProcess.ResizeImage(_imageFiles[_currentIndex], 150, 150);
         }
 
         public void LoadNewImage()
@@ -105,36 +125,31 @@ namespace COMP3304Application
             }
         }
 
-        // Events for when buttons are click
+        // Events for when buttons are clicked
         // NEXT image button click
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            _currentImage(1);
-        }
+        private void btnNext_Click(object sender, EventArgs e) => _currentImage(1);
 
         // PREVIOUS image button click
-        private void btnPrevious_Click(object sender, EventArgs e)
-        {
-            _currentImage(-1);
-        }
-        
+        private void btnPrevious_Click(object sender, EventArgs e) => _currentImage(-1);
+
         // LOAD new image button click
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            _load();
-        }
+        private void btnLoad_Click(object sender, EventArgs e) => _load();
 
-        private void pbImage_Resize(object sender, EventArgs e)
-        {
-            // Works the first time?
-            //pbImage.Image = imageProcess
-            //                .ResizeImage(_imageFiles[_currentIndex],
-            //                             pbImage.Width,
-            //                             pbImage.Height);
+        //private void Form1_Resize(object sender, EventArgs e)
+        //{
+        //    Image originalImage = _imageFiles[_currentIndex];
+        //    float scaledWidth = picturePanel.Width / originalImage.Width;
+        //    float scaledHeight = picturePanel.Height / originalImage.Height;
+        //    float scale = Math.Min(scaledHeight, scaledWidth);
+        //    float widthResult = originalImage.Width * scale;
+        //    float heightResult = originalImage.Height * scale;
 
-            // Sort of works but lags?
-            //pbImage.Width = tableLayoutPanel1.Width;
-            //pbImage.Height = tableLayoutPanel1.Height;
-        }
+        //    // Change image
+        //    picturePanel.BackgroundImage = imageProcess
+        //                    .ResizeImage(_imageFiles[_currentIndex],
+        //                                 (int) widthResult,
+        //                                 (int) heightResult);
+
+        //}
     }
 }
