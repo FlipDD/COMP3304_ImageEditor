@@ -14,7 +14,7 @@ namespace COMP3304Application
         /// </summary>
         /// <param name="pathfilenames">a vector of strings; each string containing path/filename for an image file to be loaded</param>
         /// <returns>the unique identifiers of the images that have been loaded</returns>
-        IList<String> Load(IList<String> pathfilenames);
+        IList<String> LoadImages(IList<String> pathfilenames);
 
         /// <summary>
         /// Return a copy of the image specified by 'key', scaled according to the dimensions of the visual container (i.e. frame) it will be viewed in.
