@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace COMP3304Application
+namespace ImageProcessorLibrary
 {
-    interface IImagePicker
+    public interface IImagePicker
     {
         /// <summary>
         /// 
@@ -15,6 +15,6 @@ namespace COMP3304Application
         /// <param name="increment"></param>
         /// <param name="imageFiles"></param>
         /// <returns></returns>
-        Image GetCurrentImage(int increment, IDictionary<string, Image> imageFiles);
+        int GetImageIndex(int increment, int count);
     }
 }

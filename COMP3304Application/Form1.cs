@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ImageProcessorLibrary;
 
 namespace COMP3304Application
 {
@@ -19,24 +20,27 @@ namespace COMP3304Application
             InitializeComponent();
 
             _imageHandler = new ImageHandler(new ImageLoader(), new ImagePicker());
-            _imageHandler.InitializeHandler();
-            picturePanel.BackgroundImage = _imageHandler.GetImage(0);
+            //_imageHandler.InitializeHandler();
+            picturePanel.BackgroundImage = _imageHandler.ChangeImage(0);
         }
 
-        // Events for when buttons are clicked
+        // EVENTS for when buttons are clicked
         // NEXT image button click
         private void btnNext_Click(object sender, EventArgs e)
         {
-            picturePanel.BackgroundImage = _imageHandler.GetImage(1);
+            picturePanel.BackgroundImage = _imageHandler.ChangeImage(1);
         }
 
         // PREVIOUS image button click
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            picturePanel.BackgroundImage = _imageHandler.GetImage(-1);
+            picturePanel.BackgroundImage = _imageHandler.ChangeImage(-1);
         }
 
         // LOAD new image button click
-        private void btnLoad_Click(object sender, EventArgs e) => _imageHandler.OpenLoadWindow();
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            _imageHandler.AddNewImages();
+        } 
     }
 }

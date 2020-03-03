@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace COMP3304Application
+namespace ImageProcessorLibrary
 {
     // Doc
     public delegate void Load();

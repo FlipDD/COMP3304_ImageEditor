@@ -1,16 +1,15 @@
-﻿using ImageResizerLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace COMP3304Application
+namespace ImageProcessorLibrary
 {
-    class ImageLoader : IImageLoader
+    public class ImageLoader : IImageLoader
     {  
-        public void LoadInitalImages(ImageProcess imageProcess, IDictionary<string, Image> imageFiles)
+        public IList<string> LoadInitalImages()
         {
             // CREATE a temporary list to store all assets in the directory
             IList<string> _filePaths = new List<string>();
@@ -25,19 +24,10 @@ namespace COMP3304Application
                 Console.WriteLine("Error: {0}", e.ToString());
             }
 
-            // CONVERT all Image paths (string) to Images
-            // and POPULATE the _imageFiles Dictionary.
-            IList<string> _identifiers = LoadImages(_filePaths);
-            // IDictionary<string, Image> _imagesFound = new Dictionary<string, Image>();
-            for (int i = 0; i < _identifiers.Count; i++)
-            {
-                imageFiles.Add(_identifiers[i], imageProcess.ConvertToImage(_filePaths[i]));
-            }
-
-            // return _imagesFound;
+            return _filePaths;
         }
 
-        public void BrowseNewImages(IDictionary<string, Image> imageFiles)
+        public IList<string> BrowseNewImages()
         {
             // Display a dialog box to prompt the user to select a file.
             // Create an instance with a using statement so it automatically
@@ -59,16 +49,11 @@ namespace COMP3304Application
                 // Enable multiselect to allow multiple image selection
                 fileDialog.Multiselect = true;
 
-                if (fileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    // Iterates through all selected files adding them to dictionary
-                    IList<string> _filesIdentifiers = LoadImages(fileDialog.FileNames);
-                    for (int i = 0; i < fileDialog.FileNames.Length; i++)
-                    {
-                        string path = fileDialog.FileNames[i];
-                        imageFiles.Add(_filesIdentifiers[i], imageProcess.ConvertToImage(path));
-                    }
+                if (fileDialog.ShowDialog() == DialogResult.OK) {
+                    return fileDialog.FileNames;
                 }
+
+                return null;
             }
         }
     }

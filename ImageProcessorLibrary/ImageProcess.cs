@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 // By Filipe Ribeiro
-namespace ImageResizerLibrary
+namespace ImageProcessorLibrary
 {
     /// <summary>
     /// Used to do any kind of work related to image processing
@@ -18,7 +18,7 @@ namespace ImageResizerLibrary
     /// We will be able to simply call the methods in this 
     /// class to edit the image.
     /// </summary>
-    public class ImageProcess
+    public class ImageProcess : IImageProcess
     {
         private ImageFactory imageFactory;
 

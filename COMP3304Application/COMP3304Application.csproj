@@ -49,18 +49,12 @@
     <Compile Include="CustomRoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Delegates.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImageData.cs" />
-    <Compile Include="ImageHandler.cs" />
-    <Compile Include="ImageLoader.cs" />
-    <Compile Include="ImagePicker.cs" />
-    <Compile Include="IModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
