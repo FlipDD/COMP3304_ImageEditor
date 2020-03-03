@@ -1,6 +1,6 @@
 ﻿namespace COMP3304Application
 {
-    partial class Form1
+    partial class ImageViewer
     {
         /// <summary>
         /// Required designer variable.
@@ -82,7 +82,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picturePanel.AutoSize = true;
-            this.picturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picturePanel.Location = new System.Drawing.Point(3, 3);
             this.picturePanel.Name = "picturePanel";
             this.picturePanel.Size = new System.Drawing.Size(522, 311);
@@ -160,7 +160,7 @@
             this.nextButton.UseVisualStyleBackColor = false;
             this.nextButton.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // Form1
+            // ImageViewer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -168,8 +168,9 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(550, 400);
-            this.Name = "Form1";
+            this.Name = "ImageViewer";
             this.Text = "Image Editor";
+            this.Resize += new System.EventHandler(this.ImageViewer_Resize);
             this.tableLayoutpicturePanel.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ImageProcessorLibrary
 {
@@ -27,14 +24,13 @@ namespace ImageProcessorLibrary
             PopulateImageDictionary(_imageLoader.LoadInitalImages());
         }
 
-        public void InitializeHandler()
+        public string ChangeImage(int increment)
         {
-        }
-
-        public Image ChangeImage(int increment)
-        {
+            // Set the new index to be +1 or -1, depending on increment
             int index = _imagePicker.GetImageIndex(increment, _imageFiles.Count);
-            return _imageFiles.ElementAt(index).Value;
+            string key = _imageFiles.ElementAt(index).Key;
+
+            return key;
         }
 
         public void AddNewImages()
@@ -76,8 +72,7 @@ namespace ImageProcessorLibrary
         public IList<string> LoadImages(IList<string> pathfilenames)
         {
             IList<string> _imageIdentifiers = new List<string>();
-            foreach (string path in pathfilenames)
-            {
+            foreach (string path in pathfilenames) {
                 _imageIdentifiers.Add(Path.GetFileName(path));
             }
 
@@ -88,6 +83,7 @@ namespace ImageProcessorLibrary
         {
             Image _originalImage = _imageFiles[key];
             Image _imageToGet = _imageProcess.ResizeImage(_originalImage, frameWidth, frameHeight);
+
             return _imageToGet;
         }
     }
