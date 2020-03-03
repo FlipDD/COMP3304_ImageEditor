@@ -31,7 +31,7 @@ namespace ImageResizerLibrary
             // Format is automatically detected though can be changed.
             ISupportedImageFormat format = new JpegFormat { Quality = 70 };
 
-            // We prefer "using" instead of .Dispose after using MemoryStream
+            // We prefer "Using" instead of .Dispose after using MemoryStream
             using (MemoryStream inStream = new MemoryStream(photoBytes))
             {
                 using (MemoryStream outStream = new MemoryStream())

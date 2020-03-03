@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace COMP3304Application
 {
-    public struct ImageData
+    class ImageHandler
     {
-        public int ResizedWidth { get; set; }
-        public int ResizedHeight { get; set; }
     }
 }

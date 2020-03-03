@@ -12,7 +12,7 @@ using ImageResizerLibrary;
 
 namespace COMP3304Application
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form, IModel
     {
         private ImageProcess imageProcess;
         private IList<ImageData> _imagesData;
@@ -125,6 +125,7 @@ namespace COMP3304Application
             }
         }
 
+
         // Events for when buttons are clicked
         // NEXT image button click
         private void btnNext_Click(object sender, EventArgs e) => _currentImage(1);
@@ -134,6 +135,21 @@ namespace COMP3304Application
 
         // LOAD new image button click
         private void btnLoad_Click(object sender, EventArgs e) => _load();
+
+        IList<string> IModel.Load(IList<string> pathfilenames)
+        {
+            IList<string> imageIdentifiers = new List<string>();
+            foreach (string path in pathfilenames) {
+                imageIdentifiers.Add(Path.GetFileName(path));
+            }
+
+            return imageIdentifiers;
+        }
+
+        Image IModel.GetImage(string key, int frameWidth, int frameHeight)
+        {
+            throw new NotImplementedException();
+        }
 
         //private void Form1_Resize(object sender, EventArgs e)
         //{
