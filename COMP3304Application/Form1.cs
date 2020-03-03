@@ -18,24 +18,25 @@ namespace COMP3304Application
         {
             InitializeComponent();
 
-            _imageHandler = new ImageHandler();
-            picturePanel.BackgroundImage = _imageHandler.GetCurrentImage(0);
+            _imageHandler = new ImageHandler(new ImageLoader(), new ImagePicker());
+            _imageHandler.InitializeHandler();
+            picturePanel.BackgroundImage = _imageHandler.GetImage(0);
         }
 
         // Events for when buttons are clicked
         // NEXT image button click
         private void btnNext_Click(object sender, EventArgs e)
         {
-            picturePanel.BackgroundImage = _imageHandler.GetCurrentImage(1);
+            picturePanel.BackgroundImage = _imageHandler.GetImage(1);
         }
 
         // PREVIOUS image button click
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            picturePanel.BackgroundImage = _imageHandler.GetCurrentImage(-1);
+            picturePanel.BackgroundImage = _imageHandler.GetImage(-1);
         }
 
         // LOAD new image button click
-        private void btnLoad_Click(object sender, EventArgs e) => _imageHandler.BrowseNewImages();
+        private void btnLoad_Click(object sender, EventArgs e) => _imageHandler.OpenLoadWindow();
     }
 }

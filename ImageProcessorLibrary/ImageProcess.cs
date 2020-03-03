@@ -22,9 +22,6 @@ namespace ImageResizerLibrary
     {
         private ImageFactory imageFactory;
 
-        // CONVERT to an Image by providing a path
-        // and saving it to the ImageFactory --
-        // RETURN that Image at the end.
         public Image ConvertToImage(string path)
         {
             byte[] photoBytes = File.ReadAllBytes(path);
@@ -47,9 +44,6 @@ namespace ImageResizerLibrary
             return imageFactory.Image;
         }
 
-        // RESIZE an Image by providing that Image
-        // and a new width and height --
-        // RETURN that Image at the end.
         public Image ResizeImage(Image image, int width, int height)
         {
             Size size = new Size(width, height);

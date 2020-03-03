@@ -58,6 +58,8 @@
     </Compile>
     <Compile Include="ImageData.cs" />
     <Compile Include="ImageHandler.cs" />
+    <Compile Include="ImageLoader.cs" />
+    <Compile Include="ImagePicker.cs" />
     <Compile Include="IModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
