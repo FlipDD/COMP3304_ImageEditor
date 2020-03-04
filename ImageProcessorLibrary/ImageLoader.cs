@@ -8,7 +8,11 @@ using System.Windows.Forms;
 namespace ImageProcessorLibrary
 {
     public class ImageLoader : IImageLoader
-    {  
+    {
+        /// <summary>
+        /// Load the initial images that will appear when the program first starts
+        /// </summary>
+        /// <returns>a vector of strings containing the path for each image found</returns>
         public IList<string> LoadInitalImages()
         {
             // Create a temporary list to store all assets in the directory
@@ -28,6 +32,10 @@ namespace ImageProcessorLibrary
             return filePaths;
         }
 
+        /// <summary>
+        /// Browse for new images with the Windows Explorer
+        /// </summary>
+        /// <returns>a vector of strings containing the path for each image selected</returns>
         public IList<string> BrowseNewImages()
         {
             // Display a dialog box to prompt the user to select a file.

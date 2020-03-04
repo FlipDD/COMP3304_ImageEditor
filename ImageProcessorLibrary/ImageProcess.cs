@@ -15,7 +15,7 @@ namespace ImageProcessorLibrary
     /// </summary>
     public class ImageProcess : IImageProcess
     {
-        private ImageFactory imageFactory;
+        private ImageFactory _imageFactory = new ImageFactory(preserveExifData: true);
 
         /// <summary>
         /// CONVERTS to an Image by providing a path
@@ -33,15 +33,14 @@ namespace ImageProcessorLibrary
             {
                 using (MemoryStream outStream = new MemoryStream())
                 {
-                    imageFactory = new ImageFactory(preserveExifData: true);
                     // Load, format and save the image.
-                    imageFactory.Load(inStream)
-                                .Format(format)
-                                .Save(outStream);
+                    _imageFactory.Load(inStream)
+                            .Format(format)
+                            .Save(outStream);
                 }
             }
 
-            return imageFactory.Image;
+             return _imageFactory.Image;
         }
 
         /// <summary>
@@ -57,14 +56,13 @@ namespace ImageProcessorLibrary
             Size size = new Size(width, height);
             using (MemoryStream outStream = new MemoryStream())
             {
-                imageFactory = new ImageFactory(preserveExifData: true);
                 // Load, resize and save the image.
-                imageFactory.Load(image)
+                _imageFactory.Load(image)
                             .Resize(size)
                             .Save(outStream);
             }
 
-            return imageFactory.Image;
+            return _imageFactory.Image;
         }
     }
 }
