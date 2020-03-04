@@ -63,6 +63,10 @@ namespace COMP3304Application
         {
             // Open the browse window to search for new Images to add
             _imageHandler.AddNewImages();
+            picturePanel.BackgroundImage = _imageHandler.GetImage(
+                _imageHandler.GetImagesCount() - 1,
+                picturePanel.Width,
+                picturePanel.Height);
         }
     }
 }

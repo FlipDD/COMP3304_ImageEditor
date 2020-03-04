@@ -152,5 +152,28 @@ namespace ImageProcessorLibrary
 
             return imageToGet;
         }
+
+        /// <summary>
+        /// Return a copy of the image specified by 'index', scaled according to the dimensions of the visual container (i.e. frame) it will be viewed in.
+        /// </summary>
+        /// <param name="index">the index of the _imageFiles Dictionary for the Image to be returned</param>
+        /// <param name="frameWidth">the width (in pixels) of the 'frame' it is to occupy</param>
+        /// <param name="frameHeight">the height (in pixles) of the 'frame' it is to occupy</param>
+        /// <returns>the Image pointed identified by key</returns>
+        public Image GetImage(int index, int frameWidth, int frameHeight)
+        {
+            // Get the Image from the Dictionary at a certain key
+            Image originalImage = _imageFiles.ElementAt(index).Value;
+            // Resize the Image with the specific width and height
+            Image imageToGet = _imageProcess.ResizeImage(originalImage, frameWidth, frameHeight);
+
+            return imageToGet;
+        }
+
+        /// <summary>
+        /// Returns the size of the _imageFiles Dictionary
+        /// </summary>
+        /// <returns>the Count of _imageFiles</returns>
+        public int GetImagesCount() => _imageFiles.Count;
     }
 }
