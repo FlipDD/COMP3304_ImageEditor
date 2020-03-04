@@ -4,26 +4,28 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
+// By Filipe and Nathan
 namespace ImageProcessorLibrary
 {
     public class ImageLoader : IImageLoader
     {  
         public IList<string> LoadInitalImages()
         {
-            // CREATE a temporary list to store all assets in the directory
-            IList<string> _filePaths = new List<string>();
+            // Create a temporary list to store all assets in the directory
+            var filePaths = new List<string>();
             try
             {
-                // GET the path to all Images in a directory
+                // Get the path to all Images in a directory
                 // and populate the _filePaths List
-                _filePaths = Directory.GetFiles("../../FishAssets", "*.*", SearchOption.AllDirectories).ToList();
+                filePaths = Directory.GetFiles("../../FishAssets", "*.png", SearchOption.AllDirectories).ToList();
             }
             catch (Exception e)
             {
+                // WriteLine in case there was a problem loading the Images
                 Console.WriteLine("Error: {0}", e.ToString());
             }
 
-            return _filePaths;
+            return filePaths;
         }
 
         public IList<string> BrowseNewImages()
@@ -48,6 +50,7 @@ namespace ImageProcessorLibrary
                 // Enable multiselect to allow multiple image selection
                 fileDialog.Multiselect = true;
 
+                // If we picked some Images, return them
                 if (fileDialog.ShowDialog() == DialogResult.OK) {
                     return fileDialog.FileNames;
                 }

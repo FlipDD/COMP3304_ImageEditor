@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.tableLayoutpicturePanel = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.picturePanel = new System.Windows.Forms.Panel();
             this.loadButton = new COMP3304Application.CustomRoundButton();
             this.previousButton = new COMP3304Application.CustomRoundButton();
             this.nextButton = new COMP3304Application.CustomRoundButton();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.picturePanel = new System.Windows.Forms.Panel();
             this.tableLayoutpicturePanel.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutpicturePanel
@@ -58,35 +58,6 @@
             this.tableLayoutpicturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutpicturePanel.Size = new System.Drawing.Size(522, 95);
             this.tableLayoutpicturePanel.TabIndex = 4;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutpicturePanel, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.picturePanel, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 12);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.02339F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.97661F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(528, 418);
-            this.tableLayoutPanel2.TabIndex = 5;
-            // 
-            // picturePanel
-            // 
-            this.picturePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picturePanel.AutoSize = true;
-            this.picturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picturePanel.Location = new System.Drawing.Point(3, 3);
-            this.picturePanel.Name = "picturePanel";
-            this.picturePanel.Size = new System.Drawing.Size(522, 311);
-            this.picturePanel.TabIndex = 5;
             // 
             // loadButton
             // 
@@ -160,27 +131,56 @@
             this.nextButton.UseVisualStyleBackColor = false;
             this.nextButton.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // tableLayoutPanel
+            // 
+            this.tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel.ColumnCount = 1;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.Controls.Add(this.tableLayoutpicturePanel, 0, 1);
+            this.tableLayoutPanel.Controls.Add(this.picturePanel, 0, 0);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 2;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.02339F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.97661F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(528, 418);
+            this.tableLayoutPanel.TabIndex = 5;
+            // 
+            // picturePanel
+            // 
+            this.picturePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picturePanel.AutoSize = true;
+            this.picturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picturePanel.Location = new System.Drawing.Point(3, 3);
+            this.picturePanel.Name = "picturePanel";
+            this.picturePanel.Size = new System.Drawing.Size(522, 311);
+            this.picturePanel.TabIndex = 5;
+            // 
             // ImageViewer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(552, 442);
-            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tableLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(550, 400);
             this.Name = "ImageViewer";
             this.Text = "Image Editor";
             this.Resize += new System.EventHandler(this.ImageViewer_Resize);
             this.tableLayoutpicturePanel.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel.ResumeLayout(false);
+            this.tableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.TableLayoutPanel tableLayoutpicturePanel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private CustomRoundButton loadButton;
         private CustomRoundButton previousButton;
         private CustomRoundButton nextButton;

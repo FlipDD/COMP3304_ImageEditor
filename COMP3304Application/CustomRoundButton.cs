@@ -11,7 +11,8 @@ namespace COMP3304Application
 {
     /// <summary>
     /// Class to create a custom round button
-    /// Taken from https://csharpui.com/c-custom-round-button/
+    /// Fully copied from:
+    /// https://csharpui.com/c-custom-round-button/
     /// </summary>
     public class CustomRoundButton : Button
     {

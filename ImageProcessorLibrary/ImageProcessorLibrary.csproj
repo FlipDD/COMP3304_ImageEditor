@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Delegates.cs" />
     <Compile Include="IImageLoader.cs" />
     <Compile Include="IImagePicker.cs" />
     <Compile Include="IImageProcess.cs" />

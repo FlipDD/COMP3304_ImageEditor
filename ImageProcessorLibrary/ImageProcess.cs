@@ -3,7 +3,7 @@ using ImageProcessor.Imaging.Formats;
 using System.Drawing;
 using System.IO;
 
-// By Filipe Ribeiro
+// By Filipe
 namespace ImageProcessorLibrary
 {
     /// <summary>
@@ -17,6 +17,11 @@ namespace ImageProcessorLibrary
     {
         private ImageFactory imageFactory;
 
+        /// <summary>
+        /// CONVERTS to an Image by providing a path
+        /// </summary>
+        /// <param name="path">a string; containing the path for a file to be converted to a Drawing.Image</param>
+        /// <returns>returns the Image pointed by the path</returns>
         public Image ConvertToImage(string path)
         {
             byte[] photoBytes = File.ReadAllBytes(path);
@@ -29,7 +34,7 @@ namespace ImageProcessorLibrary
                 using (MemoryStream outStream = new MemoryStream())
                 {
                     imageFactory = new ImageFactory(preserveExifData: true);
-                    // Load, format and save an image.
+                    // Load, format and save the image.
                     imageFactory.Load(inStream)
                                 .Format(format)
                                 .Save(outStream);
@@ -39,13 +44,21 @@ namespace ImageProcessorLibrary
             return imageFactory.Image;
         }
 
+        /// <summary>
+        /// RESIZE an Image with a specific width and height
+        /// </summary>
+        /// <param name="image">an Image; the Image to be Resized</param>
+        /// <param name="width">an integer; the width the new Image should have</param>
+        /// <param name="height">an integer; the height the new Image should have</param>
+        /// <returns>the resized Image</returns>
         public Image ResizeImage(Image image, int width, int height)
         {
+            // Set the size to be the provided by the parameters
             Size size = new Size(width, height);
             using (MemoryStream outStream = new MemoryStream())
             {
                 imageFactory = new ImageFactory(preserveExifData: true);
-                // Load, resize and save an image.
+                // Load, resize and save the image.
                 imageFactory.Load(image)
                             .Resize(size)
                             .Save(outStream);
