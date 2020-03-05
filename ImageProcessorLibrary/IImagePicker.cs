@@ -4,12 +4,19 @@ namespace ImageProcessorLibrary
     public interface IImagePicker
     {
         /// <summary>
-        /// Gets the index of an Image in the "_imageFiles" dictionary
-        /// Depending on how much we increment (-1, 0 or 1)
+        /// Gets the next index in the _imageFiles dictionary
         /// </summary>
-        /// <param name="increment">an integer; the amount we're incrementing by</param>
-        /// <param name="count">an integer; the current size of the dictionary</param>
-        /// <returns>the index we're gonna use</returns>
-        int GetImageIndex(int increment, int count);
+        /// <param name="currentIndex">the index to the current Image being displayed</param>
+        /// <param name="count">the current size of the Dictionary</param>
+        /// <returns>the current index in the Dictionary of the Image being displayed +1 </returns>
+        int NextImageIndex(int currentIndex, int count);
+
+        /// <summary>
+        /// Gets the previous index in the _imageFiles dictionary
+        /// </summary>
+        /// <param name="currentIndex">the index to the current Image being displayed</param>
+        /// <param name="count">the current size of the Dictionary</param>
+        /// <returns>the current index in the Dictionary of the Image being displayed -1 </returns>
+        int PreviousImageIndex(int currentIndex, int count);
     }
 }

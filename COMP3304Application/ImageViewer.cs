@@ -19,11 +19,11 @@ namespace COMP3304Application
 
             // Instantiating the ImageHandler
             // Responsible for loading, browsing and editing images
-            _imageHandler = new ImageHandler(new ImageLoader(), new ImagePicker());
+            _imageHandler = new ImageHandler(new ImageLoader(), new ImageBrowser(), new ImagePicker());
 
             // Set the background image to be the first in the dictionary
             // and Resize it to be the width and height of the Panel
-            string key = _imageHandler.ChangeImage(0);
+          string key = _imageHandler.GetCurrentImageKey();
             picturePanel.BackgroundImage = _imageHandler.GetImage(
                 key,
                 picturePanel.Width,
@@ -35,7 +35,7 @@ namespace COMP3304Application
             // Resize Image when the window size of the program changes
             // to the width and height of the container Panel
             picturePanel.BackgroundImage = _imageHandler.GetImage(
-               _imageHandler.ChangeImage(0),
+               _imageHandler.GetCurrentImageKey(),
                picturePanel.Width,
                picturePanel.Height);
         }
@@ -45,7 +45,7 @@ namespace COMP3304Application
         {
             // Show and resize the next Image in the _imageFiles Dictionary
             picturePanel.BackgroundImage = _imageHandler.GetImage(
-                _imageHandler.ChangeImage(1),
+                _imageHandler.GetNextImageKey(),
                 picturePanel.Width,
                 picturePanel.Height);
         }
@@ -54,7 +54,7 @@ namespace COMP3304Application
         {
             // Show and resize the previous Image in the _imageFiles Dictionary
             picturePanel.BackgroundImage = _imageHandler.GetImage(
-                _imageHandler.ChangeImage(-1),
+                _imageHandler.GetPreviousImageKey(),
                 picturePanel.Width,
                 picturePanel.Height);
         }
@@ -62,11 +62,14 @@ namespace COMP3304Application
         private void btnLoad_Click(object sender, EventArgs e)
         {
             // Open the browse window to search for new Images to add
-            _imageHandler.AddNewImages();
-            picturePanel.BackgroundImage = _imageHandler.GetImage(
-                _imageHandler.GetImagesCount() - 1,
-                picturePanel.Width,
-                picturePanel.Height);
+            bool addedAnyImaged = _imageHandler.AddNewImages();
+            if (addedAnyImaged)
+            {
+                picturePanel.BackgroundImage = _imageHandler.GetImage(
+                     _imageHandler.GetCurrentImageKey(),
+                    picturePanel.Width,
+                    picturePanel.Height);
+            }
         }
     }
 }
