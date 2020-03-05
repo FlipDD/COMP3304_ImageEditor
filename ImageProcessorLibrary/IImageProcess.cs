@@ -3,7 +3,7 @@
 // By Filipe
 namespace ImageProcessorLibrary
 {
-    interface IImageProcess
+    public interface IImageProcess
     {
         /// <summary>
         /// CONVERTS to an Image by providing a path

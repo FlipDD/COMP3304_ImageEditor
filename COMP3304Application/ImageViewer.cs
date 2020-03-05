@@ -21,7 +21,11 @@ namespace COMP3304Application
 
             // Instantiating the ImageHandler
             // Responsible for loading, browsing and editing images
-            _imageHandler = new ImageHandler(new ImageLoader(), new ImageBrowser(), new ImagePicker());
+            _imageHandler = new ImageHandler(
+                new ImageLoader(),
+                new ImageBrowser(), 
+                new ImagePicker(),
+                new ImageProcess());
 
             // Set the background image to be the first in the dictionary
             // and Resize it to be the width and height of the Panel
@@ -41,7 +45,7 @@ namespace COMP3304Application
         }
 
         // EVENTS for when buttons are clicked
-        private void btnNext_Click(object sender, EventArgs e)
+        private void NextButton_Click(object sender, EventArgs e)
         {
             logger.PrintMessage("Clicked on the next button");
 
@@ -52,7 +56,7 @@ namespace COMP3304Application
                 picturePanel.Height);
         }
 
-        private void btnPrevious_Click(object sender, EventArgs e)
+        private void PreviousButton_Click(object sender, EventArgs e)
         {
             logger.PrintMessage("Clicked on the previous button");
 
@@ -63,7 +67,7 @@ namespace COMP3304Application
                 picturePanel.Height);
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
+        private void LoadButton_Click(object sender, EventArgs e)
         {
             logger.PrintMessage("Clicked on the load images button");
 

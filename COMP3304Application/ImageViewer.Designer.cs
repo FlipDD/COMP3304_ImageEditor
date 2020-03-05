@@ -81,7 +81,7 @@
             this.loadButton.Text = "Load";
             this.loadButton.TextColor = System.Drawing.Color.DeepSkyBlue;
             this.loadButton.UseVisualStyleBackColor = false;
-            this.loadButton.Click += new System.EventHandler(this.btnLoad_Click);
+            this.loadButton.Click += new System.EventHandler(this.LoadButton_Click);
             // 
             // previousButton
             // 
@@ -105,7 +105,7 @@
             this.previousButton.Text = "<";
             this.previousButton.TextColor = System.Drawing.Color.DeepSkyBlue;
             this.previousButton.UseVisualStyleBackColor = false;
-            this.previousButton.Click += new System.EventHandler(this.btnPrevious_Click);
+            this.previousButton.Click += new System.EventHandler(this.PreviousButton_Click);
             // 
             // nextButton
             // 
@@ -129,7 +129,7 @@
             this.nextButton.Text = ">";
             this.nextButton.TextColor = System.Drawing.Color.DeepSkyBlue;
             this.nextButton.UseVisualStyleBackColor = false;
-            this.nextButton.Click += new System.EventHandler(this.btnNext_Click);
+            this.nextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
             // tableLayoutPanel
             // 

@@ -29,15 +29,23 @@ namespace ImageProcessorLibrary
         /// Responsible for changing the Image index in the _imageFiles Dictionary
         /// </summary>
         private readonly IImagePicker _imagePicker;
+        /// <summary>
+        /// IImageProcess named _imageProcess
+        /// Responsible for editing the Images
+        /// </summary>
+        private readonly IImageProcess _imageProcess;
 
-        // Declaring a private ImageProcess named _imageProcess
-        private ImageProcess _imageProcess;
         // Declaring a private Dictionary<string, Image> named _imageFiles
-        private IDictionary<string, Image> _imageFiles;
+        // Used to store the name of the Images and the actual Images
+        private IDictionary<string, Image> _imageFiles = new Dictionary<string, Image>();
         // Declaring a private integer named _currentIndex to keep track of the current index
         private int _currentIndex = 0;
 
-        public ImageHandler(IImageLoader imageLoader, IImageBrowser imageBrowser, IImagePicker imagePicker)
+        public ImageHandler(
+            IImageLoader imageLoader,
+            IImageBrowser imageBrowser,
+            IImagePicker imagePicker,
+            IImageProcess imageProcess)
         {
             // Responsible for loading Images
             _imageLoader = imageLoader;
@@ -45,15 +53,8 @@ namespace ImageProcessorLibrary
             _imageBrowser = imageBrowser;
             // Responsible for changing the Image index in the _imageFiles Dictionary
             _imagePicker = imagePicker;
-
-            // Initialize the Image Process class
-            // used to process/edit images
-            _imageProcess = new ImageProcess();
-
-            // Initialize the Dictionary used to 
-            // store the name of the Images and the
-            // actual Images
-            _imageFiles = new Dictionary<string, Image>();
+            // Responsible for editing images
+            _imageProcess = imageProcess;
         }
 
         public Image GetInitialImages(int width, int height)
