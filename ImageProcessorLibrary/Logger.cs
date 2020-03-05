@@ -34,10 +34,11 @@ namespace ImageProcessorLibrary
                 return instance;
             }
         }
-
+        
         public Logger(){
             // string that filename is created under
             fileName = "Error_Log.txt";
+            // string filepath is stored under
             path = @"..\..\" + fileName;
         }
 
@@ -55,25 +56,31 @@ namespace ImageProcessorLibrary
         public void ErrorBuilder(string message) {            
             // log created using timestamp and error message
             string[] log = { DateTime.Now.ToString(), " Error ", message };
+
+            // attempt creation of file or adding data to existing file
             try
             {
-                // creates new file if one doesnt exist                            
+                // if file doesnt exist create new file                            
                 if (!File.Exists(path))
                 {
                     // File creation with specified path
                     using (StreamWriter logFile = File.CreateText(path))
                     {
+                        // add message to file
                         logFile.WriteLine(string.Concat(log));
                     }
                 }
+                // if file already exists add to existing
                 else if(File.Exists(path)){
                     // adds message to existing file
                     using (StreamWriter logFile = new StreamWriter(path, true))
                     {
+                        // add message to file
                         logFile.WriteLine(string.Concat(log));
                     }
                 }
             }
+            // catch print error to console
             catch (Exception e) {
                 Console.WriteLine("Failed to log error{0}",e);
             }

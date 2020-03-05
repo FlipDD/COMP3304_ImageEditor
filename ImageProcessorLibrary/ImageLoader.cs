@@ -27,6 +27,10 @@ namespace ImageProcessorLibrary
             {
                 // WriteLine in case there was a problem loading the Images
                 Console.WriteLine("Error: {0}", e.ToString());
+                // singleton error log instance
+                Logger log = Logger.Instance;
+                // send error message to log file
+                log.ErrorBuilder($"{e}.");
             }
 
             return filePaths;
