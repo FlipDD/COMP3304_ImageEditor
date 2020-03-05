@@ -54,10 +54,20 @@ namespace ImageProcessorLibrary
             // store the name of the Images and the
             // actual Images
             _imageFiles = new Dictionary<string, Image>();
+        }
+
+        public Image GetInitialImages(int width, int height)
+        {
 
             // Populate the Image Dictionary with some initial Images so that
             // the program starts with a few already loaded up
             PopulateImageDictionary(_imageLoader.LoadInitalImages());
+
+            // Get the first image key in the dictionary
+            string key = GetCurrentImageKey();
+
+            // Return the image to display
+            return GetImage(key, width, height);
         }
 
         /// <summary>

@@ -25,9 +25,7 @@ namespace COMP3304Application
 
             // Set the background image to be the first in the dictionary
             // and Resize it to be the width and height of the Panel
-            string key = _imageHandler.GetCurrentImageKey();
-            picturePanel.BackgroundImage = _imageHandler.GetImage(
-                key,
+            picturePanel.BackgroundImage = _imageHandler.GetInitialImages(
                 picturePanel.Width,
                 picturePanel.Height);
         }
