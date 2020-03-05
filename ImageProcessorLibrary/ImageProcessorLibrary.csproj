@@ -50,12 +50,14 @@
     <Compile Include="IImageLoader.cs" />
     <Compile Include="IImagePicker.cs" />
     <Compile Include="IImageProcess.cs" />
+    <Compile Include="ILogger.cs" />
     <Compile Include="ImageBrowser.cs" />
     <Compile Include="ImageHandler.cs" />
     <Compile Include="ImageLoader.cs" />
     <Compile Include="ImagePicker.cs" />
     <Compile Include="ImageProcess.cs" />
     <Compile Include="IModel.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

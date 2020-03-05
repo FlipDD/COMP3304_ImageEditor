@@ -11,6 +11,8 @@ namespace COMP3304Application
     {
         // Declaring a private ImageHandler named _imageHandler
         private ImageHandler _imageHandler;
+        // Declaring a instance of the Logger called logger
+        private Logger logger = Logger.Instance;
 
         public ImageViewer()
         {
@@ -23,7 +25,7 @@ namespace COMP3304Application
 
             // Set the background image to be the first in the dictionary
             // and Resize it to be the width and height of the Panel
-          string key = _imageHandler.GetCurrentImageKey();
+            string key = _imageHandler.GetCurrentImageKey();
             picturePanel.BackgroundImage = _imageHandler.GetImage(
                 key,
                 picturePanel.Width,
@@ -43,6 +45,8 @@ namespace COMP3304Application
         // EVENTS for when buttons are clicked
         private void btnNext_Click(object sender, EventArgs e)
         {
+            logger.PrintMessage("Clicked on the next button");
+
             // Show and resize the next Image in the _imageFiles Dictionary
             picturePanel.BackgroundImage = _imageHandler.GetImage(
                 _imageHandler.GetNextImageKey(),
@@ -52,6 +56,8 @@ namespace COMP3304Application
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
+            logger.PrintMessage("Clicked on the previous button");
+
             // Show and resize the previous Image in the _imageFiles Dictionary
             picturePanel.BackgroundImage = _imageHandler.GetImage(
                 _imageHandler.GetPreviousImageKey(),
@@ -61,6 +67,8 @@ namespace COMP3304Application
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            logger.PrintMessage("Clicked on the load images button");
+
             // Open the browse window to search for new Images to add
             bool addedAnyImaged = _imageHandler.AddNewImages();
             if (addedAnyImaged)
