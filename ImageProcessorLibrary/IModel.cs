@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
+// Taken from assignment asset file
 namespace ImageProcessorLibrary
 {
     interface IModel

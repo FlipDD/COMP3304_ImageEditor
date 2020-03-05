@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// By Nathan
 namespace ImageProcessorLibrary
 {
     public class ImageBrowser : IImageBrowser
